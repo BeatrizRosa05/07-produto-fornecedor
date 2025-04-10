@@ -33,7 +33,7 @@ public class Util {
                     pesquisarProduto();
                     break;
                 case 3:
-                    pesquisarFornecedor();
+                    pesquisar();
                     break;
                 case 4:
                     return;
@@ -44,6 +44,17 @@ public class Util {
         }
 
     }//// MENU PRINCIPAL
+
+    private void pesquisar (){
+        String aux = "";
+        Fornecedor fornecedor = pesquisarFornecedor();
+        if (fornecedor != null){
+            aux += "Fornecedor: " + fornecedor.getNome() + "\n";
+            aux += "CNPJ: " + fornecedor.getCnpj() + "\n";
+            showMessageDialog(null, aux);
+        }
+    }
+
 
     private Fornecedor pesquisarFornecedor() {
         long cnpj = parseLong(showInputDialog("CNPJ do Fornecedor"));
@@ -99,5 +110,7 @@ public class Util {
     return fornecedor[indexFornecedor-1];
 
     }
+
+
 
 }
